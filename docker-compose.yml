@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+        - ./:/app
+    env_file:
+      - .env
+    networks:
+      - app
+    ports:
+      - "80:80"
+
+networks:
+  app:
+    driver: bridge
